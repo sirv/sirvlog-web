@@ -2,9 +2,14 @@
 
 Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
 
+  * [sirvlog](https://github.com/magictoolbox/sirvlog)
+  * [log parser for sirvlog](https://github.com/magictoolbox/sirvlog-parser)
+  * [service healh monitors for sirvlog](https://github.com/magictoolbox/sirvlog-monitors)
+
 ## Authors
 
 **Oleksiy Krivoshey**
+
   * [https://github.com/oleksiyk](https://github.com/oleksiyk)
 
 # License (MIT)
