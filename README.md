@@ -4,7 +4,7 @@ Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
 
 ### Screenshot
 
-[<img src="https://raw.github.com/magictoolbox/sirvlog-web/develop/static/screenshot.jpg" width="600px"/>](https://raw.github.com/magictoolbox/sirvlog-web/develop/static/screenshot.jpg)
+[<img src="https://dl.dropbox.com/u/102761139/sirvlog-web/screenshot.jpg" width="600px"/>](https://dl.dropbox.com/u/102761139/sirvlog-web/screenshot.jpg)
 
 ### See also
 
