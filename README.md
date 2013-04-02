@@ -2,6 +2,12 @@
 
 Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
 
+### Screenshot
+
+[<img src="https://raw.github.com/magictoolbox/sirvlog-web/develop/static/screenshot.jpg" width="600px"/>](https://raw.github.com/magictoolbox/sirvlog-web/develop/static/screenshot.jpg)
+
+### See also
+
   * [sirvlog](https://github.com/magictoolbox/sirvlog)
   * [log parser for sirvlog](https://github.com/magictoolbox/sirvlog-parser)
   * [service healh monitors for sirvlog](https://github.com/magictoolbox/sirvlog-monitors)
