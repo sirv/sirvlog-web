@@ -14,25 +14,26 @@
         "jade": ">= 0.0.1",
         "elastical":">=0.0.11",
         "underscore": ">=1.4.4",
-        "async": ">=0.2.5"
+        "async": ">=0.2.5",
+        "optimist": ">=0.3.5"
     },
     "scripts": {
         "start": "node app.js"
     },
     "bugs": {
-        "url": "https://github.com/magictoolbox/sirvlog-web/issues"
+        "url": "https://github.com/sirv/sirvlog-web/issues"
     },
     "readmeFilename": "README.md",
     "repository": {
         "type": "git",
-        "url": "git://github.com/magictoolbox/sirvlog-web.git"
+        "url": "git://github.com/sirv/sirvlog-web.git"
     },
     "keywords": [
         "log server",
         "logs",
         "sirvlog",
         "frontend",
-        "magictoolbox",
+        "sirv",
         "elasticsearch"
     ],
     "license": "MIT"

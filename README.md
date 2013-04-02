@@ -1,6 +1,6 @@
 # sirvlog-web
 
-Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
+Web frontend for [sirvlog](https://github.com/sirv/sirvlog)
 
 ### Screenshot
 
@@ -8,9 +8,9 @@ Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
 
 ### See also
 
-  * [sirvlog](https://github.com/magictoolbox/sirvlog)
-  * [log parser for sirvlog](https://github.com/magictoolbox/sirvlog-parser)
-  * [service healh monitors for sirvlog](https://github.com/magictoolbox/sirvlog-monitors)
+  * [sirvlog](https://github.com/sirv/sirvlog)
+  * [log parser for sirvlog](https://github.com/sirv/sirvlog-parser)
+  * [service healh monitors for sirvlog](https://github.com/sirv/sirvlog-monitors)
 
 ## Authors
 
@@ -20,7 +20,7 @@ Web frontend for [sirvlog](https://github.com/magictoolbox/sirvlog)
 
 # License (MIT)
 
-Copyright (c) 2013 Magic Toolbox.
+Copyright (c) 2013 Sirv.
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
