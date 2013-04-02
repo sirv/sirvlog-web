@@ -1,0 +1,12 @@
+DIV.JSONPretty { font-size: 1.1em; font-family: monospace; }
+UL.JSONPretty-object, UL.JSONPretty-array { margin: 0; padding: 0 0 0 2em; list-style: none; }
+UL.JSONPretty-object LI, UL.JSONPretty-array LI { padding: 0; margin: 0; }
+UL.JSONPretty-object LI:after, UL.JSONPretty-array LI:after { content: ','; }
+UL.JSONPretty-object LI:last-child:after, UL.JSONPretty-array LI:last-child:after { content: ''; }
+SPAN.JSONPretty-string, SPAN.JSONPretty-string A { color: green; }
+SPAN.JSONPretty-string A { text-decoration: underline;}
+SPAN.JSONPretty-string:before { content: '"'; }
+SPAN.JSONPretty-string:after { content: '"'; }
+SPAN.JSONPretty-number { color: blue; }
+SPAN.JSONPretty-null { color: red; }
+SPAN.JSONPretty-boolean { color: purple; }

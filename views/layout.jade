@@ -1,0 +1,71 @@
+!!!
+html(ng-app="SirvLog")
+    head
+        meta(charset='utf8')
+        title(ng-bind="'#{title} ' + subTitle")= title
+        link(rel='stylesheet', href='bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='bootstrap/css/bootstrap-responsive.min.css')
+        //- link(rel='stylesheet', href='css/jquery-ui-bootstrap/jquery-ui-1.10.0.custom.css');
+        link(rel='stylesheet', href='css/main.css')
+        // jquery
+        script(src='js/jquery-1.9.1.min.js')
+        script(src='js/jquery-ui-1.10.1.custom.min.js')
+        // underscore
+        script(src='js/underscore-min.js')
+
+    body
+//-        div(ng-controller='MenuCtrl').navbar.navbar-fixed-top
+            div.navbar-inner
+                div.container
+                    a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                        a(href='#').brand #{title}
+                        div.nav-collapse
+                            ul.nav
+                                li.dropdown
+                                    a.dropdown-toggle
+                                        | Searches
+                                        b.caret
+                                    ul.dropdown-menu
+                                        li
+                                            a(href='#') Default
+                                        li.divider
+                                        li(ng-repeat='(index, search) in searches')
+                                            a(ng-click='searchLink(index)') {{search.name}}
+
+        div.container-fluid
+            block content
+            hr
+            footer
+                | &copy; Sirv.com 2013. CSS by
+                a(target="_blank", href="http://twitter.github.com/bootstrap")
+                    |  Twitter Bootstrap
+                |. Icons by
+                a(target="_blank", href="http://www.glyphicons.com")
+                    |  Glyphicons.
+                |  Search powered by
+                a(target="_blank", href='http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html')
+                    |  Apache Lucene
+                script(src='bootstrap/js/bootstrap.min.js')
+                // angular
+                script(src='js/angular-1.0.4/angular.min.js')
+                script(src='js/angular-1.0.4/angular-resource.js')
+                script(src='js/angular-ui-bootstrap/ui-bootstrap-tpls-0.2.0.min.js')
+                script(src='js/angular-ui-0.4.0/build/angular-ui.min.js')
+                // json-pretty formatter
+                script(src='js/angular-json-pretty/angular-json-pretty.js')
+                link(rel='stylesheet', href='js/angular-json-pretty/angular-json-pretty.css');
+                // flot
+                script(src='js/angular-flot/angular-flot.js')
+                script(src='flot/jquery.flot.js')
+                script(src='flot/jquery.flot.time.js')
+                script(src='flot/jquery.flot.selection.js')
+                script(src='flot/jquery.flot.crosshair.js')
+                // ng application code
+                script(src='app.js')
+                script(src='controllers.js')
+                script(src='filters.js')
+                script(src='services.js')
+                script(src='directives.js')

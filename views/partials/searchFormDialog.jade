@@ -1,0 +1,15 @@
+div.modal-header
+    .button(type="button", class="close", aria-hidden="true", ng-click="close()") &times;
+
+    b Search params
+
+    .clearfix
+
+div.modal-body
+    div(ng-repeat="param in params").control-group
+        label.control-label {{param}}
+        input(type="text", ng-model="values[param]")
+    .controls.controls-row
+        button(ng-click="close(true)").btn
+            | Search &nbsp;
+            i.icon.icon-search

@@ -1,0 +1,39 @@
+{
+    "author": {
+        "name": "Oleksiy Krivoshey",
+        "email": "<oleksiyk@gmail.com>"
+    },
+    "name": "sirvlog-web",
+    "description": "Web frontend for sirvlog",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">=0.8.16"
+    },
+    "dependencies":{
+        "express":"3.x",
+        "jade": ">= 0.0.1",
+        "elastical":">=0.0.11",
+        "underscore": ">=1.4.4",
+        "async": ">=0.2.5"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "bugs": {
+        "url": "https://github.com/magictoolbox/sirvlog-web/issues"
+    },
+    "readmeFilename": "README.md",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/magictoolbox/sirvlog-web.git"
+    },
+    "keywords": [
+        "log server",
+        "logs",
+        "sirvlog",
+        "frontend",
+        "magictoolbox",
+        "elasticsearch"
+    ],
+    "license": "MIT"
+}

@@ -1,0 +1,108 @@
+div(ng-controller="LogsViewCtrl").row-fluid
+
+    .span10
+
+        .row-fluid
+            .span12
+                div(ng-dblclick="scrollToFlotPosition()")
+                    flot(data='flot.data',
+                        options='flot.options',
+                        selected-range='flot.range',
+                        draw-event='redrawFlot',
+                        lock-crosshair-pos='flot.crosshairPos',
+                        position='flot.position').logs-histogram
+
+
+        .row-fluid
+            div(ng-class="{muted: processing}").span12
+
+                .row-fluid
+                    .controls.controls-row
+
+                        select(ng-model="searchParams.pager.limit", ng-options="val for val in searchParams.pager.limits").span1
+
+                        div(ng-class='{error: searchQueryError}').control-group.span7
+                            .input-prepend.span12
+                                div(ng-controller='MenuCtrl').btn-group
+                                    button.btn.dropdown-toggle
+                                        i.icon.icon-search
+                                        b.caret
+                                    ul.dropdown-menu
+                                        li
+                                            a(href='#') Default
+                                        li.divider
+                                        li(ng-repeat='(index, search) in searches')
+                                            a(ng-click='searchLink(index)') {{search.name}}
+                                input(type="text", placeholder="Search..", ng-model="searchParams.searchQuery", style="width: 100%")#searchbox
+
+                        pagination(num-pages="searchParams.pager.pagesTotal", current-page="searchParams.pager.curPage", max-size="5").pull-right
+
+                .row-fluid
+                    table.table.table-bordered.table-condensed.table-hover.log-stream-table
+                        tr
+                            th(width="110px") Date
+                            th Hostname
+                            th Facility
+                            th(width="50px") Level
+                            th Message
+                        tr(ng-repeat='(index, log) in data.hits.hits', ng-class='{ error: log._source.level<4, warning: log._source.level==4 }', ng-click='showMessageSource(index)')
+                            td {{log._source.timestamp | date:'dd/MMM/yy HH:mm:ss'}}
+                            td.nowrap {{log._source.hostname}}
+                            td.nowrap {{log._source.facility}}
+                            td {{log._source.level | loglevelname }}
+                            td {{log._source.message}}
+
+                .row-fluid
+                    .span2.offset5
+                        span.label.label-success {{data.hits.total | number}}
+                    a(ng-href='{{viewPermalink()}}', target='_blank').pull-right
+                        i.icon-share
+                        | &nbsp; permalink
+
+
+    .span2
+        .row-fluid
+            div(ng-class="{error: timeRange.fromError}").control-group.span12
+                label.control-label From:
+                input(type="text", ng-model="timeRange.from", ng-change="validateScopeTimeRange()")
+        .row-fluid
+            div(ng-class="{error: timeRange.toError}").control-group.span12
+                label.control-label To:
+                input(type="text", ng-model="timeRange.to", ng-change="validateScopeTimeRange()")
+
+
+        .row-fluid
+            .controls.controls-row.span12
+                .btn-group
+                    button(ng-disabled="!timeRangeHistory || timeRangeHistoryPos<=0", ng-click='applyScopeTimeRangeHistoryEntry(timeRangeHistoryPos-1)').btn
+                        i.icon.icon-arrow-left
+                    button(ng-disabled="!timeRangeHistory || timeRangeHistoryPos>=timeRangeHistory.length-1", ng-click='applyScopeTimeRangeHistoryEntry(timeRangeHistoryPos+1)').btn
+                        i.icon.icon-arrow-right
+                    button(ng-disabled="!timeRangeHistory").btn.dropdown-toggle
+                        b.caret
+                    ul.dropdown-menu.pull-right
+                        li(ng-repeat='(index, range) in timeRangeHistory')
+                            a(ng-click='applyScopeTimeRangeHistoryEntry(index)') {{range.from | date:'dd/MMM/yy HH:mm:ss'}} - {{range.to | date:'dd/MMM/yy HH:mm:ss'}}
+                                i(ng-show='index == timeRangeHistoryPos').icon.icon-ok
+                .btn-group
+                    button(ng-click="applyScopeTimeRange()", ng-disabled="timeRange.fromError || timeRange.toError").btn
+                        | Apply &nbsp;
+                        i.icon.icon-ok
+
+        .row-fluid
+            hr.span12
+
+        .row-fluid
+            .span12
+                button(ng-click="refresh()", ng-disabled="processing").btn.btn-primary
+                    | Refresh &nbsp;
+                    i.icon.icon-refresh.icon-white
+
+
+
+script
+    $(document).ready(function(){
+        setTimeout(function() {
+            $('#searchbox').focus();
+        }, 10);
+    });

@@ -1,0 +1,23 @@
+div(ng-controller="MessageViewCtrl").row-fluid
+    .span6.offset3
+        dl
+            dt Facility:
+            dd {{message.facility}}
+
+            dt Hostname:
+            dd {{message.hostname}}
+
+            dt Level:
+            dd {{message.level | loglevelname | uppercase}}
+
+            dt Timestamp (GMT):
+            dd {{message.timestamp | datetime:true}}
+
+            dt Received (GMT):
+            dd {{message.receivedTs | datetime:true}}
+
+
+            dt Message source:
+            dd
+                jsonpretty(object="message")
+

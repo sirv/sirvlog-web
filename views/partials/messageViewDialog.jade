@@ -1,0 +1,39 @@
+div.modal-header
+    .button(type="button", class="close", aria-hidden="true", ng-click="close()") &times;
+
+    b
+        | {{message.facility}}
+        | |
+        | {{message.hostname}}
+        | |
+        | {{message.timestamp | datetime}}
+    .clearfix
+
+div.modal-body
+
+    dl
+        dt Level:
+        dd {{message.level | loglevelname | uppercase}}
+
+        dt Timestamp (GMT):
+        dd {{message.timestamp | datetime:true}}
+
+        dt Message source:
+        dd
+            jsonpretty(object="message")
+
+div.modal-footer
+    .input-prepend.pull-left
+        .btn-group
+            button.btn.dropdown-toggle
+                b.caret
+            ul.dropdown-menu
+                li
+                    a(ng-click='filter()') Show logs within {{interval}} seconds
+                li
+                    a(ng-click='filter(true)') + filter by facility: {{message.facility}}
+        input(type="text", ng-model="interval").span1
+
+    a(href='/#/message/{{messageIndex}}/{{messageId}}', target='_blank')
+        i.icon-share
+        | &nbsp; permalink
