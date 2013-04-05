@@ -19,7 +19,7 @@ var getSearchIndexes = function (from, to) {
         var d = new Date(ts);
         var m = d.getMonth() + 1;
 
-        var indexName = app.config.elasticsearch.index.prefix + '-*-' + d.getFullYear() + '-' + (m < 10 ? ('0' + m) : m);
+        var indexName = app.config.elasticsearch.index.prefix + '-' + d.getFullYear() + '-' + (m < 10 ? ('0' + m) : m);
 
         if (/(weekly|daily)/.test(app.config.elasticsearch.index.rotate)) {
             if (app.config.elasticsearch.index.rotate == 'weekly') {
