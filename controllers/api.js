@@ -137,7 +137,8 @@ module.exports = function(_app){
                 },
                 "facets": facets,
                 "sort": [
-                    { "timestamp": "desc" }
+                    { "timestamp": "desc" },
+                    { "order": "desc" }
                 ],
                 "size": size,
                 "from": from
