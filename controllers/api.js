@@ -19,14 +19,17 @@ var getSearchIndexes = function (from, to) {
         var d = new Date(ts);
         var m = d.getMonth() + 1;
 
-        var indexName = app.config.elasticsearch.index.prefix + '-' + d.getFullYear() + '-' + (m < 10 ? ('0' + m) : m);
+        var indexName = app.config.elasticsearch.index.prefix + '-' + d.getFullYear();// + '-' + (m < 10 ? ('0' + m) : m);
 
         if (/(weekly|daily)/.test(app.config.elasticsearch.index.rotate)) {
             if (app.config.elasticsearch.index.rotate == 'weekly') {
                 d = new Date(d - ((d.getDay() + 6) % 7) * 24 * 60 * 60 * 1000); // get last Monday date
+                m = d.getMonth() + 1;
             }
             var day = d.getDate();
-            indexName += '-' + (day < 10 ? ('0' + day) : day);
+            indexName += '-' + (m < 10 ? ('0' + m) : m) + '-' + (day < 10 ? ('0' + day) : day);
+        } else {
+            indexName += '-' + (m < 10 ? ('0' + m) : m);
         }
 
         return indexName.replace(/-+/g, '-').toLowerCase();
