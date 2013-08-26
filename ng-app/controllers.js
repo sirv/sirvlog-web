@@ -336,8 +336,8 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
 
         $scope.searchParams = $.extend(true, $scope.searchParams, {
             timeRange: {
-                from: Date.parse($scope.timeRange.from),
-                to: Date.parse($scope.timeRange.to)
+                from: moment($scope.timeRange.from, 'DD/MMM/YY HH:mm:ss').valueOf(),
+                to: moment($scope.timeRange.to, 'DD/MMM/YY HH:mm:ss').valueOf()
             },
             pager: {
                 curPage: 1
