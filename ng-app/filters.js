@@ -2,10 +2,12 @@
 
 /* Filters */
 
+/* global angular */
+
 angular.module('SirvLog.filters', []).
     filter('loglevelname', function() {
         return function(level) {
-            if(level === undefined) return;
+            if(level === undefined) {return; }
             switch(level){
                 case 7:
                     return 'debug';
@@ -29,7 +31,7 @@ angular.module('SirvLog.filters', []).
     }).
     filter('datetime', function() {
         return function(timestamp, iso) {
-            if(timestamp === undefined) return;
+            if(timestamp === undefined) {return;}
             if(iso){
                 return new Date(timestamp).toISOString();
             }

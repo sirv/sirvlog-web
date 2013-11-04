@@ -1,3 +1,7 @@
+"use strict";
+
+/* global angular */
+
 // Declare app level module which depends on filters, and services
 var app = angular.module('SirvLog', ['SirvLog.filters', 'SirvLog.services', 'SirvLog.directives', 'ui.bootstrap', 'json-pretty', 'flot', 'ui']).
     config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {

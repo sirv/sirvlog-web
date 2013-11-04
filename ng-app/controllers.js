@@ -1,3 +1,6 @@
+"use strict";
+
+/* global angular, app, _, moment */
 
 app.controller('MenuCtrl', function($scope, $location, ConfigSearches, $dialog) {
 
@@ -53,7 +56,7 @@ app.controller('MenuCtrl', function($scope, $location, ConfigSearches, $dialog) 
         $scope.searches = ConfigSearches.query();
     }
 
-    return new MenuCtrl;
+    return new MenuCtrl();
 });
 
 app.controller('SearchFormDialogCtrl', function($scope, $routeParams, dialog, params, values) {
@@ -90,7 +93,7 @@ app.controller('SearchFormDialogCtrl', function($scope, $routeParams, dialog, pa
         };
     }
 
-    return new SearchFormDialogCtrl;
+    return new SearchFormDialogCtrl();
 });
 
 app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filter, $location) {
@@ -276,7 +279,7 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
             range: null // bindings
         }
 
-        $scope.$watch('flot.range', function(cur, old){
+        $scope.$watch('flot.range', function(cur /*, old*/){
             if(cur){
                 this.setScopeTimeRange(Math.round(cur.xaxis.from), Math.round(cur.xaxis.to));
             } else {
@@ -289,7 +292,7 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
         var reg = /^(\d{1,2}\/[a-z]{3})\/\d{2} \d{2}:\d{2}:\d{2}/i;
 
         ['from', 'to'].forEach(function(f){
-            $scope.timeRange[f+'Error'] = isNaN(Date.parse($scope.timeRange[f]))
+            $scope.timeRange[f+'Error'] = isNaN(moment($scope.timeRange[f], 'DD/MMM/YY HH:mm:ss').valueOf())
                 || !reg.test($scope.timeRange[f])
         })
     }
@@ -354,13 +357,13 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
 
     LogsViewCtrl.prototype.updateFlotData = function(facets){
 
-        if(!facets) return;
+        if(!facets) { return; }
 
         $scope.flot.data.forEach(function(serie, ind){
 
             var data = [];
 
-            if(!facets[serie.facetName]) return;
+            if(!facets[serie.facetName]) { return;}
 
             facets[serie.facetName].entries.forEach(function(d){
                 data.push([d.key, d.count]);
@@ -422,7 +425,7 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
                 }
             }
 
-        }.bind(this), function(err){
+        }.bind(this), function(/*err*/){
             //console.log('err', err);
         });
     }
@@ -441,7 +444,7 @@ app.controller('LogsViewCtrl', function($scope, $rootScope, Logs, $dialog, $filt
         }).open();
     };
 
-    return new LogsViewCtrl;
+    return new LogsViewCtrl();
 
 });
 
@@ -482,7 +485,7 @@ app.controller('MessageViewDialogCtrl', function($scope, $routeParams, dialog, m
         };
     }
 
-    return new MessageViewDialogCtrl;
+    return new MessageViewDialogCtrl();
 });
 
 app.controller('MessageViewCtrl', function($scope, $routeParams, Message, $rootScope) {
@@ -498,7 +501,7 @@ app.controller('MessageViewCtrl', function($scope, $routeParams, Message, $rootS
         });
     }
 
-    return new MessageViewCtrl;
+    return new MessageViewCtrl();
 
 });
 

@@ -2,6 +2,7 @@
 
 /* Services */
 
+/* global angular */
 
 angular.module('SirvLog.services', ['ngResource']).
     factory('Logs', function ($resource) {
